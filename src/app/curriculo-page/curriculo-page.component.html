@@ -1,0 +1,95 @@
+<div class="main">
+  <h1>Curriculo</h1>
+  <form [formGroup]="curriculo" (ngSubmit)="onSubmit()">
+    <div class="container-name">
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" formControlName="nome" required placeholder="Jõao da Silva Sauro">
+    </div>
+    <div class="container-contatos">
+      <div class="content-email">
+        <label for="email">Email</label>
+        <input type="email" id="email" formControlName="email" required placeholder="Jõao@nossoEmail.com">
+      </div>
+      <div class="content-telefone">
+        <label for="telefone">Telefone</label>
+        <input type="text" id="telefone" formControlName="telefone" required placeholder="(11)  99999-9999">
+      </div>
+    </div>
+    <div class="container-historico">
+      <div class="content-escola">
+        <label for="escola">Escola do ensino médio</label>
+        <input type="text" id="escola" formControlName="escola" required placeholder="Escola Estadual de Ensino Médio">
+      </div>
+      <div class="contente-universidade">
+        <label for="curso">Curso</label>
+        <input type="text" id="curso" formControlName="curso" required placeholder="Técnico em Informática">
+        <label for="ano">Ano de conclusão</label>
+        <input type="number" id="ano" formControlName="ano" required placeholder="2019">
+        <label for="universidade">Universidade</label>
+        <input type="text" id="universidade" formControlName="universidade" required placeholder="Universidade Federal de São Paulo">
+      </div>
+    </div>
+    <div>
+      <label for="experiencia">Experiencia</label>
+      <textarea id="experiencia" formControlName="experiencia" required placeholder="Trabalhei na empresa X como desenvolvedor web"></textarea>
+    </div>
+    <div class="submit">
+      <button type="submit">Enviar</button>
+    </div>
+  </form>
+</div>
+
+<div class="results" *ngIf="showForm">
+  <h1>Resultado</h1>
+  <div class="container-name">
+    <p>Nome: {{ curriculo.get('nome')?.value }}</p>
+  </div>
+  <div class="container-contatos">
+    <div class="content-email">
+      <p>Email: {{ curriculo.get('email')?.value }}</p>
+    </div>
+    <div class="content-telefone">
+      <p>Telefone: {{ curriculo.get('telefone')?.value }}</p>
+    </div>
+  </div>
+  <div class="container-historico">
+    <div class="content-escola">
+      <p>Escola do ensino médio: {{ curriculo.get('escola')?.value }}</p>
+    </div>
+    <div class="contente-universidade">
+      <p>Curso: {{ curriculo.get('curso')?.value }}</p>
+      <p>Ano de conclusão: {{ curriculo.get('ano')?.value }}</p>
+      <p>Universidade: {{ curriculo.get('universidade')?.value }}</p>
+    </div>
+  </div>
+  <div>
+    <p>Experiencia: {{ curriculo.get('experiencia')?.value }}</p>
+  </div>
+</div>
+
+<!-- <div class="results" *ngIf="showForm">
+  <h1>Resultado</h1>
+  <div class="container-name">
+    <p>Nome: {{curriculo.value.nome}}</p>
+  </div>
+  <div class="container-contatos">
+    <div class="content-email">
+      <p>Email: {{curriculo.value.email}}</p>
+    </div>
+    <div class="content-telefone">
+      <p>Telefone: {{curriculo.value.telefone}}</p>
+    </div>
+  </div>
+  <div class="container-historico">
+    <div class="content-escola">
+      <p>Escola do ensino médio: {{curriculo.value.escola}}</p>
+    </div>
+    <div class="contente-universidade" >
+      <p>Curso: {{curriculo.value.curso}}</p>
+      <p>Ano de conclusão: {{curriculo.value.ano}}</p>
+      <p>Universidade: {{curriculo.value.universidade}}</p>
+    </div>
+  </div>
+  <div>
+    <p>Experiencia: {{curriculo.value.experiencia}}</p>
+  </div> -->
